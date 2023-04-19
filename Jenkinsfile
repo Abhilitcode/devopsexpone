@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Cloning repository') {
             steps {
-                bat 'xcopy C:\\Users\\HP\\.jenkins\\workspace\\abhishek\\* E:\\devops\\htdocs\\devopsexpone\\ /Y /S'
+                bat 'xcopy C:\\Users\\HP\\.jenkins\\workspace\\abhishek\\* E:\\devops\\htdocs\\exp4\\ /Y /S'
             }
         }
         stage('Deploying HTML files') {
             steps {
-                bat 'xcopy *.html E:\\devops\\htdocs\\devopsexpone\\ /Y /S'
+                bat 'xcopy *.html E:\\devops\\htdocs\\exp4\\ /Y /S'
             }
         }
         stage('Printing done') {
@@ -23,5 +23,6 @@ pipeline {
         }
     }
 }
+
 
 
