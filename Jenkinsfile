@@ -1,19 +1,20 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        bat 'echo "Building HTML files"'
-        bat 'mkdir build'
-        bat 'xcopy /s *.html build\\'
-      }
+    agent any
+    stages {
+        stage('Checking python version') {
+            steps {
+                bat 'python --version'
+            }
+        }
+        stage('Cloning repository') {
+            steps {
+                bat 'git clone <repository URL> C:/Xamp/htdocs/devopsexpone'
+            }
+        }
+        stage('Printing done') {
+            steps {
+                echo 'Done'
+            }
+        }
     }
-    stage('Deploy') {
-      steps {
-        publishOverSmb([
-          smb('xampp', credentialsId: 'windows_credentials', domain: 'WORKGROUP', shareName: 'html', useWorkspaceInPromotion: false, usePromotionTimestamp: false, flattenFilePaths: false, cleanRemote: false, noDefaultExcludes: false, makeEmptyDirs: false, patternSeparator: '[, ]+', verbose: true)
-        ])
-      }
-    }
-  }
 }
