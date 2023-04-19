@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Cloning repository') {
             steps {
-                bat 'xcopy C:\\Users\\HP\\.jenkins\\workspace\\abhishek\\* E:\\devops\\htdocs\\exp4\\ /Y /S'
+                bat 'xcopy C:\\Users\\HP\\.jenkins\\workspace\\abhishek\\* E:\\devops\\htdocs\\devopsexpone\\ /Y /S'
             }
         }
         stage('Printing done') {
